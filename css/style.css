@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+input[type="text"], textarea {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.post {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.post-header strong {
+    font-size: 1.1rem;
+}
+
+.post-message {
+    margin: 5px 0 10px;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+}
+
+.like-btn {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.like-btn:hover {
+    background: #ddd;
+}
+
+.like-count {
+    margin-left: 6px;
+    font-weight: bold;
+}
