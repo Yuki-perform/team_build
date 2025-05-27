@@ -79,3 +79,10 @@ function initialize_json_file($filepath) {
         save_json_file($filepath, []);
     }
 }
+
+// 投稿データを読み込む関数を追加
+function load_posts()
+{
+    $filepath = __DIR__ . '/posts.json';
+    return read_json_file($filepath);
+}
