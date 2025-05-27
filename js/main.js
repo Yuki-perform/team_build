@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const postId = button.getAttribute("data-post-id");
 
             // 非同期通信（Fetch API）でlike.phpにリクエストを送信
-            fetch(`like.php?post_id=${postId}`)
+            fetch(`like.php?id=${postId}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === "success") {
