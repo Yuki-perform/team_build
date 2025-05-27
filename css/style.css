@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#posts .post {
+    margin-bottom: 20px;
+}
+
+button.like-button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button.liked {
+    color: red;
+}
