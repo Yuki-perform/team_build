@@ -34,7 +34,7 @@ $posts = load_posts();
                         </div>
                         <div class="post-message"><?= nl2br(sanitize($post['content'])) ?></div>
                         <div class="post-footer">
-                            <button class="like-button" data-post-id="<?= (int) $post['id'] ?>">
+                            <button class="like-button" data-post-id="<?= $post['id'] ?>">
                                 いいね <span class="like-count" id="likes-count-<?= $post['id'] ?>"><?= $post['likes'] ?></span>
                             </button>
                         </div>
