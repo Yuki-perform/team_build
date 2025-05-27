@@ -2,7 +2,8 @@
 // 共通関数ファイル functions.php
 
 // JSONファイルの読み込み（ファイルロックあり）
-function read_json_file($filepath) {
+function read_json_file($filepath)
+{
     if (!file_exists($filepath)) {
         return [];
     }
@@ -29,7 +30,8 @@ function read_json_file($filepath) {
 }
 
 // JSONファイルへの保存（ファイルロックあり）
-function save_json_file($filepath, $data) {
+function save_json_file($filepath, $data)
+{
     $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     if ($json === false) {
         log_json_error('JSON Encode Error: ' . json_last_error_msg());
@@ -53,24 +55,33 @@ function save_json_file($filepath, $data) {
 }
 
 // 投稿データのサニタイズ
-function sanitize_post_data($post) {
+function sanitize_post_data($post)
+{
     return [
-        'id'      => uniqid('post_', true),
-        'title'   => htmlspecialchars(trim($post['title'] ?? ''), ENT_QUOTES, 'UTF-8'),
+        'id' => uniqid('post_', true),
+        'title' => htmlspecialchars(trim($post['title'] ?? ''), ENT_QUOTES, 'UTF-8'),
         'content' => nl2br(htmlspecialchars(trim($post['content'] ?? ''), ENT_QUOTES, 'UTF-8')),
-        'author'  => htmlspecialchars(trim($post['author'] ?? ''), ENT_QUOTES, 'UTF-8'),
-        'date'    => date('Y-m-d H:i:s'),
-        'likes'   => 0
+        'author' => htmlspecialchars(trim($post['author'] ?? ''), ENT_QUOTES, 'UTF-8'),
+        'date' => date('Y-m-d H:i:s'),
+        'likes' => 0
     ];
 }
 
+// 文字列用サニタイズ関数
+function sanitize($str)
+{
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
+
 // エラーログの記録
-function log_json_error($message) {
+function log_json_error($message)
+{
     error_log('[JSON Error] ' . $message);
 }
 
 // 初期ファイル生成（空配列で初期化）
-function initialize_json_file($filepath) {
+function initialize_json_file($filepath)
+{
     if (!file_exists($filepath)) {
         $dir = dirname($filepath);
         if (!is_dir($dir)) {
@@ -83,6 +94,7 @@ function initialize_json_file($filepath) {
 // 投稿データを読み込む関数を追加
 function load_posts()
 {
-    $filepath = __DIR__ . '/posts.json';
+    $filepath = __DIR__ . '/data/posts.json';
     return read_json_file($filepath);
 }
+
